@@ -48,11 +48,56 @@ let fo = "Hello";
 // alert(fo + bar); // alert - bar is not defined
 
 // 7) Using fetch() to get a data
-fetch("https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10")
-  .then((response) => {
-    return response.json();
-  })
-  .then((datas) => {
-    //head.innerHTML = datas.map((data) => data.url);
-    //console.log(datas);
+// fetch("https://jsonplaceholder.typicode.com/photos?_start=0&_limit=10")
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((datas) => {
+//     const newLocal = (head.innerHTML = datas.map(
+//       (data) => `<p>${data.title}</p>`
+//     ));
+//     console.log(datas);
+//   })
+//   .catch((err) => console.log(err));
+
+// 8) Make GET request using axios
+// axios
+//   .get("https://jsonplaceholder.typicode.com/photos?_limit=10")
+//   .then((res) => {
+//     console.log(res.data);
+//     head.innerHTML = res.data.map((res) => `<p>${res.title}</p>`);
+//   })
+//   .catch((err) => console.log(err));
+
+// 9) Async function
+const one = () => "I am one";
+
+const two = () => "I am two";
+
+const three = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("I am three"), 3000);
   });
+};
+
+const four = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("I am four"), 5000);
+  });
+};
+
+async function data() {
+  const first = one();
+  console.log(first);
+
+  const second = two();
+  console.log(second);
+
+  const thrid = await three();
+  console.log(thrid);
+
+  const fourth = await four();
+  console.log(fourth);
+}
+
+data();
