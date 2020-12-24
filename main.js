@@ -69,7 +69,7 @@ let fo = "Hello";
 //   })
 //   .catch((err) => console.log(err));
 
-// 9) Async function
+// 9) Async function - for asyn/await function we have to create a promise. Because async/await function only await the promise.
 const one = () => "I am one";
 
 const two = () => "I am two";
